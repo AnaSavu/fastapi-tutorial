@@ -9,3 +9,64 @@ GET http://127.0.0.1:8000/hello/User
 Accept: application/json
 
 ###
+
+GET http://127.0.0.1:8000/items/foo
+Accept: application/json
+
+###
+
+POST http://127.0.0.1:8000/items/save
+Content-Type: application/json
+Accept: application/json
+
+{"item_id": "1"}
+
+###
+
+POST http://127.0.0.1:8000/nested/parameters
+Content-Type: application/json
+Accept: application/json
+
+{ "item": {"item_id": "1"}, "user": {"username": "ana"}}
+
+###
+
+POST http://127.0.0.1:8000/nested/models
+Content-Type: application/json
+Accept: application/json
+
+{"item_id": "1", "tags": ["ana", "banana"]}
+
+###
+
+POST http://127.0.0.1:8000/files
+Content-Type: application/json
+Accept: application/json
+
+{"item_id": "1", "tags": ["ana", "banana"]}
+
+###
+
+POST http://127.0.0.1:8000/upload-file
+Content-Type: multipart/form-data
+
+
+{"item_id": "1", "tags": ["ana", "banana"]}
+
+###
+
+GET http://127.0.0.1:8000/item/foo
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/items
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/users
+Accept: application/json
+
+###
+
