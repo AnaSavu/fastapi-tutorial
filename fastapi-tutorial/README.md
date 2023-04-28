@@ -227,4 +227,28 @@ async def read_results():
 ```
 You can only use await inside of functions created with async def.
 
-## CORS (Cross-Origin Resource Sharing)
+## Testing
+It is needed to use ```Test Client```. To install it, run ```pip install httpx```.\
+Write a simple ```assert``` statement with the standard Python expression you need to check. Below is an example:\ 
+```
+from fastapi import FastAPI
+from fastapi.testclient import TestClient
+
+app = FastAPI()
+
+
+@app.get("/")
+async def read_main():
+    return {"msg": "Hello World"}
+
+
+client = TestClient(app)
+
+
+def test_read_main():
+    response = client.get("/")
+    assert response.status_code == 200
+    assert response.json() == {"msg": "Hello World"}
+```
+To run tests, you need to install ```pytest``` by running ```pip install pytest```
+
